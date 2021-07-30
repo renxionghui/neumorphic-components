@@ -1,0 +1,27 @@
+
+//modifier
+$theme-list:'primary','default';
+$default:'default';
+$medium:'medium';
+$small:'small';
+$mini:'mini';
+
+// color
+$primary:#6d5dfc;
+$primary-light:#8abdff;
+$primary-dark:#5b0eeb;
+
+$white:#ffffff;
+$black:#000000;
+
+$grey-light-1: #E4EBF5;
+$grey-light-2: #c8d0e7;
+$grey-light-3: #bec8e4;
+$grey-light-4: #9baacf;
+
+$o-shadow: 3px 3px 6px $grey-light-2,
+-2px -2px 5px $white;
+$i-shadow: inset 2px 2px 5px $grey-light-2,
+inset -2px -2px 5px $white;
+
+$i-shadow-primary:inset 2px 2px 10px $primary-dark,inset -2px -2px 10px $primary-light;

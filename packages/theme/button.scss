@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@use "sass:map";
+
+@import './common/var.scss';
+
+// font-size
+$button-font-size: (
+    'medium': 14px,
+    'small': 13px,
+    'mini': 12px,
+);
+//padding
+$button-padding-vertical:(
+    'medium':10px,
+    'small':8px,
+    'mini':6px);
+
+$button-padding-horizontal:(
+    'medium':18px,
+    'small':16px,
+    'mini':14px);
+
+.nc-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    box-shadow: $o-shadow;
+    color: $grey-light-4;
+    font-size: 14px;
+    padding: 12px 20px;
+    background-color: $white;
+    border-radius: 6px;
+    border:none;
+
+    &:hover:not(:disabled){
+        color: $primary;
+        filter: brightness(1.1);
+    }
+    &:active{
+        box-shadow: $i-shadow;
+    }
+
+    &:disabled{
+        filter: brightness(0.9);
+        cursor: not-allowed;
+    }
+
+    & + &{
+        margin-left: 10px;
+    }
+
+    &.nc-button--primary{
+        color: $grey-light-1;
+        background-color: $primary;
+    }
+
+    &.nc-button--primary:hover:not(:disabled){
+        color: $white;
+    }
+
+    &.nc-button--primary:active{
+        box-shadow: $i-shadow-primary;
+    }
+
+    @each $size in map-keys($map: $button-font-size) {
+        &.nc-button--#{$size} {
+            font-size: map-get($map: $button-font-size, $key:$size);
+            padding: map-get($map:$button-padding-vertical, $key:$size) map-get($map: $button-padding-horizontal, $key:$size);
+            border-radius: map-get($map: $button-font-size, $key:$size) - 10px;
+        }
+
+        &.nc-button--#{$size}.is-round{
+            border-radius: 20px;
+        }
+
+        &.nc-button--#{$size}.is-circle{
+            border-radius: 50%;
+            padding: map-get($map:$button-padding-vertical, $key:$size);
+        }
+    }
+
+}
